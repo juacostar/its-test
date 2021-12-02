@@ -26,4 +26,8 @@ public class EmpleadosService {
     public Empleados saveEmployee(Empleados empleados){
        return empleadosRepository.save(empleados);
     }
+
+    public void deleteEmployeeById(Integer id){
+        empleadosRepository.deleteById(id);
+    }
 }

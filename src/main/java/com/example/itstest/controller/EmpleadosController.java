@@ -27,7 +27,7 @@ public class EmpleadosController {
     public @ResponseBody ResponseEntity<Empleados> addNewEmployee(@RequestBody EmpleadoDTO empleadoDTO) throws ParseException {
         Empleados empleados = new Empleados();
         Optional<Empleados> oldEmployee = empleadosService.findByIdEmployee(empleadoDTO.getIdentificacion());
-        if(!oldEmployee.isPresent()){
+        if(oldEmployee.isPresent()){
             return ResponseEntity.badRequest().body(null);
         }
         empleados.setIdentificacion(empleadoDTO.getIdentificacion());
